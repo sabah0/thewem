@@ -1,0 +1,21 @@
+import { lazy, Suspense } from "react";
+import HeroSection from "../components/home/HeroSection";
+
+const AboutPreview = lazy(() => import("../components/home/AboutPreview"));
+const ServicesPreview = lazy(() => import("../components/home/ServicesPreview"));
+const WhyChooseUs = lazy(() => import("../components/home/WhyChooseUs"));
+const CTASection = lazy(() => import("../components/home/CTASection"));
+
+export default function Home() {
+  return (
+    <main>
+      <HeroSection />
+      <Suspense fallback={<div className="h-screen" />}>
+        <AboutPreview />
+        <ServicesPreview />
+        <WhyChooseUs />
+        <CTASection />
+      </Suspense>
+    </main>
+  );
+}
